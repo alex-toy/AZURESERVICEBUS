@@ -10,8 +10,13 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 
-string serviceBusUrl = "weatherforecastsb.servicebus.windows.net";
-string queue = "add-weather-data";
+//string serviceBusUrl = "weatherforecastsb.servicebus.windows.net";
+//string queue = "add-weather-data";
+//builder.Services.AddSingleton<IServiceBusHelper>(new ServiceBusHelper(serviceBusUrl, queue));
+
+
+string serviceBusUrl = "courseservicebus.servicebus.windows.net";
+string queue = "courseadded";
 builder.Services.AddSingleton<IServiceBusHelper>(new ServiceBusHelper(serviceBusUrl, queue));
 
 var app = builder.Build();

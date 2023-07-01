@@ -5,6 +5,8 @@ using System.Text.Json;
 
 namespace AzureServiceBusApp.Controllers
 {
+    [ApiController]
+    [Route("[controller]")]
     public class CourseController : Controller
     {
         private readonly ILogger<WeatherForecastController> _logger;
@@ -28,7 +30,7 @@ namespace AzureServiceBusApp.Controllers
                 ForDate = course.Date,
             };
 
-            string? body = JsonSerializer.Serialize(course);
+            string? body = JsonSerializer.Serialize(courseAdded);
 
             await _serviceBus.SendMessage(body, null, 3000);
         }

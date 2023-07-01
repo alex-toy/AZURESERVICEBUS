@@ -53,7 +53,7 @@ Microsoft.Extensions.Azure
 
 ### Managed identity
 
-- add a role
+- in the *Access Control (IAM)* section, add a role
 <img src="/pictures/role.png" title="managed identity"  width="900">
 
 - add a member
@@ -74,3 +74,17 @@ Microsoft.Azure.WebJobs.Extensions.ServiceBus
 ## Topics and Subscriptions
 
 We will use **Topics** and **Subscriptions** in Azure Service Bus from a .NET application. We will create a new Topic, send messages to it, add multiple subscribers and process the messages. We will also add Filters and Actions when creating subscriptions and see how that affects message processing.
+
+### Service Bus
+
+- create a **Service Bus**. Since we will be using topics, you need to choose the *Standard Pricing Tier*
+<img src="/pictures/service_bus_topic.png" title="service bus"  width="900">
+
+- create a topic
+<img src="/pictures/service_bus_topic2.png" title="service bus"  width="900">
+
+- create a subscription
+<img src="/pictures/service_bus_topic3.png" title="service bus"  width="900">
+
+- run the app and peek one message
+<img src="/pictures/service_bus_topic4.png" title="service bus"  width="900">
