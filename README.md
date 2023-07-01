@@ -63,7 +63,7 @@ Microsoft.Extensions.Azure
 - in visual studio Tools/Options, select *Azure Service Authentication* and make sure you have the right user selected
 <img src="/pictures/role4.png" title="managed identity"  width="900">
 
-- in the Azure function project add package
+- in the Azure function project add package. You need to update to version 5.3 in case
 ```
 Microsoft.Azure.WebJobs.Extensions.ServiceBus
 ```
@@ -88,3 +88,16 @@ We will use **Topics** and **Subscriptions** in Azure Service Bus from a .NET ap
 
 - run the app and peek one message
 <img src="/pictures/service_bus_topic4.png" title="service bus"  width="900">
+
+### Azure Function
+
+- create an *Azure Function*. Choose *Service Bus Topic Trigger*
+<img src="/pictures/af_topic.png" title="azure function topic"  width="900">
+
+- in the Azure function project add package. You need to update to version 5.3 in case
+```
+Microsoft.Azure.WebJobs.Extensions.ServiceBus
+```
+
+- run the app
+<img src="/pictures/af_topic2.png" title="azure function topic"  width="900">
