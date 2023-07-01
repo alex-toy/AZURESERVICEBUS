@@ -18,7 +18,7 @@ Let's use Queues in **Azure Service Bus** from a .NET application. We will creat
 - grab the default connection string
 <img src="/pictures/service_bus3.png" title="service bus"  width="900">
 
-### App
+### API
 
 - create a .NET Core API version 6
 
@@ -35,6 +35,14 @@ Azure.Messaging.ServiceBus
 
 - in service bus explore, you can peek messages
 <img src="/pictures/service_bus6.png" title="service bus"  width="900">
+
+### Azure Function
+
+- create an *Azure Function*. Choose *Service Bus Queue Trigger*
+<img src="/pictures/azure_function.png" title="service bus"  width="900">
+
+- run both the app and the azure function and see that the azure function has been triggered
+<img src="/pictures/azure_function2.png" title="service bus"  width="900">
 
 
 ## Topics and Subscriptions
