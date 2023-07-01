@@ -44,6 +44,12 @@ Azure.Messaging.ServiceBus
 - run both the app and the azure function and see that the azure function has been triggered
 <img src="/pictures/azure_function2.png" title="service bus"  width="900">
 
+- messages that throw an exception end up in the dead letter queue
+<img src="/pictures/azure_function3.png" title="service bus"  width="900">
+
+- you can modify the number of times the messages that throw an exception will be sent back into the queue
+<img src="/pictures/azure_function4.png" title="service bus"  width="900">
+
 
 ## Topics and Subscriptions
 

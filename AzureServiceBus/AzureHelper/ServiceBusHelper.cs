@@ -17,11 +17,12 @@ namespace AzureHelper
             _client = new ServiceBusClient(connectionString);
         }
 
-        public async Task SendMessage(string body, Dictionary<string, string> properties = null, int TTL = 30)
+        public async Task SendMessage(string body, Dictionary<string, string> properties = null, int TTL = 30, bool scheduled = false)
         {
             if (_sender == null) _sender = _client.CreateSender(_queueName);
 
             ServiceBusMessage message = new ServiceBusMessage(body);
+            if (scheduled) message.ScheduledEnqueueTime = DateTimeOffset.UtcNow.AddSeconds(5);
             message.ContentType = "application/json";
             message.TimeToLive = TimeSpan.FromSeconds(TTL);
             AddProperties(properties, message);

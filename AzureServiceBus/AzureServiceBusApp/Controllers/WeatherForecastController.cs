@@ -42,7 +42,7 @@ namespace AzureServiceBusApp.Controllers
             string? body = JsonSerializer.Serialize(weatherForecast);
 
             var serviceBus = new ServiceBusHelper(connectionString, queue);
-            await serviceBus.SendMessage(body);
+            await serviceBus.SendMessage(body, null, 3000, weatherForecast.Scheduled);
         }
     }
 }

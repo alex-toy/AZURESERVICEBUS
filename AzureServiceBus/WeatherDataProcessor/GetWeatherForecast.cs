@@ -8,9 +8,10 @@ namespace WeatherDataProcessor
     public class GetWeatherForecast
     {
         [FunctionName("GetWeatherForecast")]
-        public void Run([ServiceBusTrigger("add-weather-data", Connection = "connectionString")]string myQueueItem, ILogger log)
+        public void Run([ServiceBusTrigger("add-weather-data", Connection = "connectionString")]string weatherData, ILogger log)
         {
-            log.LogInformation($"C# ServiceBus queue trigger function processed message: {myQueueItem}");
+            if (weatherData.Length > 30) throw new Exception();
+            log.LogInformation($"C# ServiceBus queue trigger function processed message: {weatherData}");
         }
     }
 }
