@@ -1,4 +1,4 @@
-# AZURE SERVICE BUS TOPICS & SUBSCRIPTIONS
+# AZURE SERVICE BUS
 
 **Azure Service Bus** is a fully managed enterprise message broker with message queues and publish-subscribe topics. Service Bus is used to decouple applications and services from each other and provides reliable message queuing and durable publish/subscribe messaging. Some of the core messaging capabilities that are supported include Queues, Topics, Subscriptions, and Rules and Actions.
 
@@ -25,6 +25,7 @@ Let's use Queues in **Azure Service Bus** from a .NET application. We will creat
 - add packages
 ```
 Azure.Messaging.ServiceBus
+Microsoft.Extensions.Azure
 ```
 
 - run the app and try out the Post method
@@ -49,6 +50,25 @@ Azure.Messaging.ServiceBus
 
 - you can modify the number of times the messages that throw an exception will be sent back into the queue
 <img src="/pictures/azure_function4.png" title="service bus"  width="900">
+
+### Managed identity
+
+- add a role
+<img src="/pictures/role.png" title="managed identity"  width="900">
+
+- add a member
+<img src="/pictures/role2.png" title="managed identity"  width="900">
+<img src="/pictures/role3.png" title="managed identity"  width="900">
+
+- in visual studio Tools/Options, select *Azure Service Authentication* and make sure you have the right user selected
+<img src="/pictures/role4.png" title="managed identity"  width="900">
+
+- in the Azure function project add package
+```
+Microsoft.Azure.WebJobs.Extensions.ServiceBus
+```
+
+- we can now remove the connection string from the controller
 
 
 ## Topics and Subscriptions

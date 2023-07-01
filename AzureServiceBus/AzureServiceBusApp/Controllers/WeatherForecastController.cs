@@ -9,16 +9,18 @@ namespace AzureServiceBusApp.Controllers
     [Route("[controller]")]
     public class WeatherForecastController : ControllerBase
     {
+        private readonly ILogger<WeatherForecastController> _logger;
+        private readonly IServiceBusHelper _serviceBus;
+
         private static readonly string[] Summaries = new[]
         {
-        "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-    };
+            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
+        };
 
-        private readonly ILogger<WeatherForecastController> _logger;
-
-        public WeatherForecastController(ILogger<WeatherForecastController> logger)
+        public WeatherForecastController(ILogger<WeatherForecastController> logger, IServiceBusHelper serviceBusHelper)
         {
             _logger = logger;
+            _serviceBus = serviceBusHelper;
         }
 
         [HttpGet(Name = "GetWeatherForecast")]
@@ -36,13 +38,9 @@ namespace AzureServiceBusApp.Controllers
         [HttpPost]
         public async Task AddWeatherForecast(WeatherForecast weatherForecast)
         {
-            string connectionString = "Endpoint=sb://weatherforecastsb.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=zknamkoJKsWSh5JqfZXyJYNWPm2vgqt60+ASbM1Ok34=";
-            string queue = "add-weather-data";
-
             string? body = JsonSerializer.Serialize(weatherForecast);
 
-            var serviceBus = new ServiceBusHelper(connectionString, queue);
-            await serviceBus.SendMessage(body, null, 3000, weatherForecast.Scheduled);
+            await _serviceBus.SendMessage(body, null, 3000, weatherForecast.Scheduled);
         }
     }
 }
