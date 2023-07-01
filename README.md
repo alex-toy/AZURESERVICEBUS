@@ -12,9 +12,29 @@ Let's use Queues in **Azure Service Bus** from a .NET application. We will creat
 - create a **Service Bus**
 <img src="/pictures/service_bus.png" title="service bus"  width="900">
 
-
 - add a queue to it
 <img src="/pictures/service_bus2.png" title="service bus"  width="900">
+
+- grab the default connection string
+<img src="/pictures/service_bus3.png" title="service bus"  width="900">
+
+### App
+
+- create a .NET Core API version 6
+
+- add packages
+```
+Azure.Messaging.ServiceBus
+```
+
+- run the app and try out the Post method
+<img src="/pictures/service_bus4.png" title="service bus"  width="900">
+
+- see the message in service bus
+<img src="/pictures/service_bus5.png" title="service bus"  width="900">
+
+- in service bus explore, you can peek messages
+<img src="/pictures/service_bus6.png" title="service bus"  width="900">
 
 
 ## Topics and Subscriptions

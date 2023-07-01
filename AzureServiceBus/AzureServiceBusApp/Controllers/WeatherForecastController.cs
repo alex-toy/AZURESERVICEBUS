@@ -1,5 +1,7 @@
+using AzureHelper;
 using AzureServiceBusApp.Models;
 using Microsoft.AspNetCore.Mvc;
+using System.Text.Json;
 
 namespace AzureServiceBusApp.Controllers
 {
@@ -29,6 +31,18 @@ namespace AzureServiceBusApp.Controllers
                 Summary = Summaries[Random.Shared.Next(Summaries.Length)]
             })
             .ToArray();
+        }
+
+        [HttpPost]
+        public async Task AddWeatherForecast(WeatherForecast weatherForecast)
+        {
+            string connectionString = "Endpoint=sb://weatherforecastsb.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=zknamkoJKsWSh5JqfZXyJYNWPm2vgqt60+ASbM1Ok34=";
+            string queue = "add-weather-data";
+
+            string? body = JsonSerializer.Serialize(weatherForecast);
+
+            var serviceBus = new ServiceBusHelper(connectionString, queue);
+            await serviceBus.SendMessage(body);
         }
     }
 }
