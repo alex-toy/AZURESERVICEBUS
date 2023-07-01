@@ -7,10 +7,14 @@
 
 Let's use Queues in **Azure Service Bus** from a .NET application. We will create a **Queue**, send a message to it, the different message properties, consume messages from the it. We will consume it from an **Azure Function**. We will also set up Dependency Injection when working with Service Bus Clients and also use Managed Identity to connect securely with Service Bus Queues, which removes any need for sensitive configurations in the application.
 
-### Lab – Creating a Hub
+### Service Bus
 
-- create en event hub namespace
-<img src="/pictures/event_hub.png" title="event hub"  width="900">
+- create a **Service Bus**
+<img src="/pictures/service_bus.png" title="service bus"  width="900">
+
+
+- add a queue to it
+<img src="/pictures/service_bus2.png" title="service bus"  width="900">
 
 
 ## Topics and Subscriptions
