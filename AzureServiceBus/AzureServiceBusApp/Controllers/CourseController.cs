@@ -32,7 +32,10 @@ namespace AzureServiceBusApp.Controllers
 
             string? body = JsonSerializer.Serialize(courseAdded);
 
-            await _serviceBus.SendMessage(body, null, 3000);
+            var properties = new Dictionary<string, string>() { 
+                { "Month" , course.Date.ToString("MMMM")} 
+            };
+            await _serviceBus.SendMessage(body, properties, 3000);
         }
     }
 }

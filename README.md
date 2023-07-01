@@ -101,3 +101,25 @@ Microsoft.Azure.WebJobs.Extensions.ServiceBus
 
 - run the app
 <img src="/pictures/af_topic2.png" title="azure function topic"  width="900">
+
+### Exception in processing messages
+
+- when an exception occurs, the message ends up in the dead letter queue
+<img src="/pictures/af_topic3.png" title="azure function topic"  width="900">
+
+- create a new subscription
+<img src="/pictures/af_topic4.png" title="azure function topic"  width="900">
+
+- see that the two subscriptions reacted differently
+<img src="/pictures/af_topic5.png" title="azure function topic"  width="900">
+
+### Filters
+
+- add a filter
+<img src="/pictures/filter.png" title="filter"  width="900">
+
+- execute the app using a month different from december and see that the topic is not triggers. The message doesn't show up in the update-report subscription.
+<img src="/pictures/filter2.png" title="filter"  width="900">
+
+- now use december and see that the update report is triggered 
+<img src="/pictures/filter3.png" title="filter"  width="900">
